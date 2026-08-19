@@ -23,3 +23,5 @@ Coral and algae area around research stations.
 Deep ocean data came from NOAA ETOPO1.
 
 Coral habitat data came from the Allen Coral Atlas.
+
+Hydrothermal vent locations came from the InterRidge Global Database of Active Submarine Hydrothermal Vent Fields. I downloaded the data and uploaded it into Google Earth Engine as a vector layer.
