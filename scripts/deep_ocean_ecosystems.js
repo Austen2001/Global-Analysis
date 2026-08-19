@@ -191,3 +191,30 @@ addLegendItem('00FFFF', 'Marine protected areas')
 
 // Add the legend to the map
 Map.add(legend)
+
+// Load the uploaded vent data
+var hydrothermalVents = ee.FeatureCollection(
+  'projects/my-project-503200/assets/hydrothermal_vents_clean'
+);
+
+// Make points from the latitude and longitude columns
+hydrothermalVents = hydrothermalVents.map(
+  function(vent) {
+    return vent.setGeometry(
+      ee.Geometry.Point([
+        vent.getNumber('Longitude'),
+        vent.getNumber('Latitude')
+      ])
+    );
+  }
+);
+
+// Add the vents to the map
+Map.addLayer(
+  hydrothermalVents.style({
+    color: 'red',
+    pointSize: 5
+  }),
+  {},
+  'Hydrothermal vents'
+);
